@@ -1,0 +1,31 @@
+# basic linux github actions
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: install typst
+    # download https://github.com/typst/typst/releases/download/22-03-21-2/typst-x86_64-unknown-linux-gnu.tar.gz
+    # and extract it to the local dir
+    # use to compile main.typ
+    # install GLIBC_2.35
+      run: |
+        wget https://github.com/typst/typst/releases/download/22-03-21-2/typst-x86_64-unknown-linux-gnu.tar.gz
+        tar -xvf typst-x86_64-unknown-linux-gnu.tar.gz
+        ./typst-x86_64-unknown-linux-gnu/typst main.typ
+
+    # artifacts any pdf file in root
+    - uses: actions/upload-artifact@v2
+      with:
+        name: pdf
+        path: '*.pdf'
