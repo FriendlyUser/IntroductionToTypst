@@ -24,7 +24,6 @@
       align(center, location + ", "+ postalCode),
     ),
   )
-
   pad(
     top: 0.1em,
     bottom: 0.1em,
@@ -35,6 +34,7 @@
       align(center, phoneNumber + " - "+ email),
     ),
   )
+  line(length: 100%)
 
   let count = experiences.len()
   let nrows = calc.min(count, 1)
@@ -61,6 +61,7 @@
       )
     ]),
   )
+  line(length: 100%)
   pad(y: 2em,
     grid(
       columns: 1,
@@ -74,7 +75,7 @@
           gutter: 0.05em,
           column-gutter: 0pt,
           row-gutter: 0pt,
-          education.startDate + " - " + education.endDate + " ", "|" + education.location,
+          education.startDate + " - " + education.endDate + " ", " | " + education.location,
       ),
       pad(
           x: 1em,
@@ -82,7 +83,7 @@
       )
     )
   )
-
+  line(length: 100%)
   text(weight: 700, 1.5em, "References")
   pad(y:1em, text("Available on Request"))
   // Main body.
