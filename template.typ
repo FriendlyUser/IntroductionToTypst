@@ -1,7 +1,7 @@
 // The project function defines how your document looks.
 // It takes your content and some metadata and formats it.
 // Go ahead and customize it to your liking!
-#let project(
+#let resume(
   title: "", location: "", postalCode: "", phoneNumber: "", email: "",
   authors: (), experiences: (), education: (), body) = {
   // Set the document's basic properties.
